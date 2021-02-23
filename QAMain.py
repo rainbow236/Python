@@ -1,4 +1,3 @@
-import QAScripts as QA
 import urllib.request as req
 import bs4
 import time
@@ -171,7 +170,6 @@ class UrlInfo:
                     s1=s.text[:-1] #刪除字串中的最後一個字"/"
                     game_types_list.append(s1)
         return game_types_list
-
     def PrintGameTypesList(self):
         game_types_list = UrlInfo.UrlConvertToGameTypesList(self)
         for s in game_types_list:
@@ -188,24 +186,18 @@ def OpenChrome():
     driver.set_window_size(960,1080)                    # 視窗大小
     driver.set_window_position(0,0)                     # 視窗位置
     return driver
-
-
-
 ## 主測試流程
 def MainTest(*args): 
     mainTestTimeStart = time.time() #紀錄開始時間
-
     # 抓畫布大小
     canvas = driver.find_element_by_xpath("/html/body/div/canvas") 
     maxPositionX = canvas.size['width']
     maxPositionY = canvas.size['height']
-
     # 點擊相對位置
     def clickPosition(scaleX,scaleY):
         positionX = int(maxPositionX * scaleX)
         positionY = int(maxPositionY * scaleY)
         ActionChains(driver).move_to_element_with_offset(canvas,positionX,positionY).click().perform()
-
     ## 執行旋轉動作
     # 1線機台點擊位置
     if nowGameType in slotMachine:
@@ -229,7 +221,6 @@ def MainTest(*args):
         clickPosition(0.773,0.329)                  #按下∞
         clickPosition(0.673,0.550)                  #按下X3
         clickPosition(0.648,0.690)                  #按下確定
-
     ## 判斷直到贏錢時，再按一次旋轉按鈕來停下遊戲
     spinTimes = 0
     gameWin = False
@@ -254,7 +245,6 @@ def MainTest(*args):
                         clickPosition(0.926,0.482)  #旋轉按鈕(uiType=0)
                         time.sleep(0.2)
                     break
-
     ## 持續點擊賠率表並判斷是否已停止中獎表演
     isGameStop = False
     while isGameStop == False:
@@ -267,7 +257,6 @@ def MainTest(*args):
             if "MoneyWin" in result['message']:   #如果還是沒停下(接收到"NormalWin")，則繼續按旋轉鍵
                 clickPosition(0.926,0.512)          #旋轉按鈕(uiType=0)
     clickPosition(0.550,0.893)                      #賠率表(uiType=0)
-
     ## 判斷賠率表是否開啟，賠率表往下滾動
     isOpenPaytable = False
     while isOpenPaytable == False:

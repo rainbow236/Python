@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>Java Script</title>
+	<style type="text/css">
+	.head{
+		background-color:#003344;color:white;font-weight:bold;font-size:30px;
+		text-align:center;padding:10px;
+	}
+	.content{
+		width:1000px;margin-left:auto;margin-right:auto;		
+	}
+	.box{
+		width:280px;padding:10px;margin:10px;background-color:white;
+		display:inline-block;vertical-align::top;
+		text-align:center;height:150px;line-height:30px;
+	}
+	.title{font-weight:bold}
+	@media screen and (max-width:600px){
+		.content{width:100%;text-align:center;}
+	</style>
+	<script type="text/javascript">
+		// alert(window.screen.width+"x"+window.screen.height);
+		// alert("Hello world 中文");
+		// 單行註解
+		
+		/*
+			多行註解
+		*/
+		
+		// 資料
+			/*
+			123;
+			1.23;
+			"字串";
+			true; //必須為全小寫
+			false;
+			*/
+		
+		// 變數
+			/*
+			var y=true;
+			var x=15;
+			alert(y);
+			x="文字"
+			alert(x);
+			*/
+		
+		// 運算子
+			/*
+			alert(15+30);
+			var a=0;
+			var b=1
+			a++;
+			alert(a);
+			a--;
+			alert(a);
+			result = a>b;
+			alert(result);
+			result = a<=b
+			alert(result);
+			result = a==b
+			alert(result);
+			*/
+			
+		// 範例
+			/*
+			// 輸入：prompt() -> 程式運算 -> 輸出：alert(資料);
+			var x = prompt("請輸入數字","1");
+			alert(x*2);
+			*/
+			
+		// 判斷	
+			/*
+			var n1=prompt("請輸入第一個數字", "");
+			if(isNaN(n1)){
+				alert("請輸入數字");
+			}
+			var n2=prompt("請輸入第二個數字", "");
+			
+			if(false){
+				alert("Yes");
+			}else if(false){
+				alert("No");
+			}else{
+				alert("?");
+			}
+			*/
+		
+		// 迴圈	for(){} while(){} break; 強制跳出迴圈 continue;強制進行下一次迴圈
+			/*
+			var n = 0;
+			while(n<=100){
+				n++;
+			}
+			alert(n);
+			
+			var sum = 0;
+			for(var i=1;i<=100;i++){
+				sum += i;
+			}
+			alert(sum);
+			
+			
+			
+			var sum = 0;
+			var n = 0;
+			while(n<=50 && sum<=50){
+				sum+=n;
+				n++
+			}
+			alert(sum);
+			*/
+//abc(123)			
+		//函式
+/*			function abc(msg){
+				alert(msg)
+			}
+*/	
+
+			
+	</script>
+</head>	
+<body style="margin:0px;background-color:#eeeeee;">
+	<div class="head">自我介紹</div>
+	<div class="content">
+		<div class="box">
+			<div class="title">基本資料</div>
+			<div>登入</div>
+			<div>環境</div>
+			<div>渠道</div>
+			<div>帳號</div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="box">
+			<div class="title">基本資料</div>
+			<div>key</div>
+			<div>iv</div>
+			<div>網址</div>
+			<div>API</div>
+		</div>
+		<div class="box">
+			<div class="title">基本資料</div>
+			<div>男生</div>
+			<div>台灣</div>
+			<div>國語</div>
+			<div>　</div>
+		</div>
+	</div>
+</body>
+</html>
