@@ -1,4 +1,4 @@
-import execjs
+import execjs # pip install PyExecJS
 
 def js_from_file(file_name):
     """

@@ -1,8 +1,8 @@
 import urllib.request as req
-import bs4
+import bs4 # pip install beautifulsoup4
 import time
-import pyautogui
-import selenium
+import pyautogui # pip install pyautogui
+import selenium # pip install selenium
 import sys
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
@@ -149,9 +149,20 @@ slotMarvelClick = ["MarvelClassic",
 
     "MarvelClassicEX"]
 # debug用，直接執行指定gameType，不使用時填[""]
-directRunDebugGametype = [""]
+directRunDebugGametype = ["Aladin"]
 # debug用，從指定遊戲開始往下跑，使用時填"gameType"，不使用時填None
 directRunFromGameType = None
+
+##debug中
+#directoryUrl="http://bundle.bdlserver.com/InGame/AllGameResTest/"
+directoryUrl="http://bundle.bdlserver.com/QATest/AllGame_Dev/"
+selectFuntion = 4
+
+# directoryUrl = input("輸入資料夾網址：")
+# selectFuntion = int(input("\n1.資料夾總遊戲列\n2.資料夾全遊戲運行\n3.只跑Loading\n4.跑100次directRunDebugGametype遊戲\n選擇想要的方法：\n"))
+print("-------------------------------------------")
+accounts = ["/?gameMode=1&language=en&debug=true&mute=true","/?gameMode=1&language=tw&debug=true&mute=true","/?gameMode=1&language=kr&debug=true&mute=true","/?gameMode=1&language=th&debug=true&mute=true","/?gameMode=1&language=vn&debug=true&mute=true","/?gameMode=1&language=es&debug=true&mute=true","/?gameMode=1&language=cn&debug=true&mute=true"]
+debugMode = False
 
 class UrlInfo:
     def UrlConvertToGameTypesList(self):
@@ -363,18 +374,6 @@ def LoadingTest(driver,nowGameType):
     if gameLoadComplete == False:
         print(nowGameType + " 讀取超過30秒，最後資訊：" + FilterConsole(result['message']))
         return  
-
-##---主流程(Main)---##
-##debug中
-#directoryUrl="http://bundle.bdlserver.com/InGame/AllGameResTest/"
-directoryUrl="http://bundle.bdlserver.com/QATest/AllGame_Dev/"
-selectFuntion = 2
-
-# directoryUrl = input("輸入資料夾網址：")
-# selectFuntion = int(input("\n1.資料夾總遊戲列\n2.資料夾全遊戲運行\n3.只跑Loading\n4.xxx\n選擇想要的方法：\n"))
-print("-------------------------------------------")
-accounts = ["/?gameMode=1&language=en&debug=true&mute=true","/?gameMode=1&language=tw&debug=true&mute=true","/?gameMode=1&language=kr&debug=true&mute=true","/?gameMode=1&language=th&debug=true&mute=true","/?gameMode=1&language=vn&debug=true&mute=true","/?gameMode=1&language=es&debug=true&mute=true","/?gameMode=1&language=cn&debug=true&mute=true"]
-debugMode = False
 
 ## 選擇項目
 # 1.資料夾總遊戲列
