@@ -19,18 +19,24 @@
 # form.mainloop()
 
 from pynput.keyboard import Listener
-import pynput
-import time,os,signal,threading
-import pyautogui
-import pydirectinput
+import time
+import pydirectinput # F12改PAUSE = 0.01加快速度
+import os
 
 def on_press(key):
-    pass
+    all_key.append(str(key))
+    # print(all_key)
+    delaytime = 0.1
+    if "'r'" in all_key:
+        time.sleep(delaytime)
+        pydirectinput.press('r')
+        all_key.clear()
+        return False
 
 def on_release(key):
     all_key.append(str(key))
     # print(all_key)
-    delaytime = 0.01
+    delaytime = 0.02
     if "'w'" in all_key:
         # print("開場技能")
         pydirectinput.press('`')
@@ -56,8 +62,9 @@ def on_release(key):
         pydirectinput.keyUp('ctrl')
         time.sleep(delaytime)                       
         all_key.clear()
+        return False
     if "'e'" in all_key:
-        # print("攻擊技能組")
+      # print("攻擊技能組")
         pydirectinput.press('`')
         time.sleep(delaytime)
         pydirectinput.press('8')
@@ -77,13 +84,15 @@ def on_release(key):
         pydirectinput.press('r')
         time.sleep(delaytime)               
         all_key.clear()
+        return False
+
     # if "'q'" in all_key:
     #     print("快速離場")
     #     all_key.clear()
 
     if 'Key.caps_lock' in all_key:
         print("中斷程式")
-        return False
+        os._exit()
     try:
         if all_key[-1] == 'Key.ctrl_l':
             time1 = time.time()
@@ -94,9 +103,10 @@ def on_release(key):
     except:
         pass
 def start_listen():
-    with Listener(on_press=None, on_release=on_release) as listener:
+    with Listener(on_press=on_press, on_release=on_release) as listener:
         listener.join()
 
 if __name__ == '__main__':
     all_key = []
-    start_listen()
+    while True:
+        start_listen()
